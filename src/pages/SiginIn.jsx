@@ -204,7 +204,7 @@ const SignIn = () => {
               className="text-3xl font-bold mb-3"
               style={{ color: "#d946ef" }}
             >
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-fuchsia-600">
+              <span className="bg-clip-text text-transparent bg-linear-to-r from-indigo-600 to-fuchsia-600">
                 Login to Account
               </span>
             </motion.h2>
