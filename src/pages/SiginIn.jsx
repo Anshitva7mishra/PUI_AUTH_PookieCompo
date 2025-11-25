@@ -264,7 +264,7 @@ const SignIn = () => {
             >
               <button
                 type="button"
-                className="group relative inline-flex items-center gap-2 px-8 py-3 rounded-full text-white text-sm font-semibold tracking-wide shadow-lg transition-all hover:shadow-xl hover:-translate-y-0.5"
+                className="group relative inline-flex items-center gap-2 px-8 py-3 rounded-full text-white text-sm font-semibold tracking-wide shadow-lg transition-all hover:shadow-xl hover:-translate-y-0.5 cursor-pointer"
                 style={{
                   backgroundImage: `linear-gradient(to right, ${colors.gradientStart}, ${colors.gradientEnd}, #d946ef)`,
                   backgroundSize: "200% auto",
@@ -273,7 +273,7 @@ const SignIn = () => {
                 Sign In
                 <ArrowRight
                   size={16}
-                  className="transition-transform group-hover:translate-x-1"
+                  className="cursor-pointer transition-transform group-hover:translate-x-1"
                 />
               </button>
             </motion.div>

@@ -250,7 +250,6 @@ const SignUp = () => {
             >
               <button
                 type="button"
-                onClick={() => navigate("/PUI/login")}
                 className="group relative inline-flex items-center gap-2 px-8 py-3 rounded-full text-white text-sm font-semibold tracking-wide shadow-lg transition-all hover:shadow-xl hover:-translate-y-0.5 cursor-pointer"
                 style={{
                   backgroundImage: `linear-gradient(to right, ${colors.gradientStart}, ${colors.gradientEnd}, #d946ef)`,
