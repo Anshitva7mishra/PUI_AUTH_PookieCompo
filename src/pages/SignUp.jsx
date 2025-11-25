@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { User, Mail, Lock, ArrowRight, CheckCircle } from "lucide-react";
+import { User, Mail, Lock, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const WorkspaceIllustration = ({ primaryColor }) => (
   <svg
@@ -107,6 +108,8 @@ const WorkspaceIllustration = ({ primaryColor }) => (
 );
 
 const SignUp = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -190,9 +193,7 @@ const SignUp = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
               className="text-3xl font-bold mb-3"
-              style={{
-                color: "#d946ef",
-              }}
+              style={{ color: "#d946ef" }}
             >
               <span className="bg-clip-text text-transparent bg-linear-to-r from-indigo-600 to-fuchsia-600">
                 Save Your Account Now
@@ -220,7 +221,6 @@ const SignUp = () => {
               onChange={handleChange}
               color={colors.primary}
             />
-
             <InputGroup
               delay={0.8}
               icon={<Mail size={18} />}
@@ -231,7 +231,6 @@ const SignUp = () => {
               onChange={handleChange}
               color={colors.primary}
             />
-
             <InputGroup
               delay={0.9}
               icon={<Lock size={18} />}
@@ -251,6 +250,7 @@ const SignUp = () => {
             >
               <button
                 type="button"
+                onClick={() => navigate("/PUI/login")}
                 className="group relative inline-flex items-center gap-2 px-8 py-3 rounded-full text-white text-sm font-semibold tracking-wide shadow-lg transition-all hover:shadow-xl hover:-translate-y-0.5 cursor-pointer"
                 style={{
                   backgroundImage: `linear-gradient(to right, ${colors.gradientStart}, ${colors.gradientEnd}, #d946ef)`,
@@ -273,13 +273,13 @@ const SignUp = () => {
             className="mt-12 text-sm text-gray-500"
           >
             Already have an account?{" "}
-            <a
-              href="/PUI/login"
+            <span
+              onClick={() => navigate("/PUI/login")}
               className="cursor-pointer font-bold hover:underline"
               style={{ color: colors.primaryDark }}
             >
               Login
-            </a>
+            </span>
           </motion.div>
         </div>
       </motion.div>

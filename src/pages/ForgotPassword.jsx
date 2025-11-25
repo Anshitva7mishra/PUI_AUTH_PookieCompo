@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, ArrowRight, ArrowLeft, Key } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const RecoveryIllustration = ({ primaryColor }) => (
   <svg
@@ -96,6 +97,7 @@ const RecoveryIllustration = ({ primaryColor }) => (
 );
 
 const ForgotPassword = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
 
   const handleSubmit = (e) => {
@@ -191,8 +193,8 @@ const ForgotPassword = () => {
               transition={{ delay: 0.6 }}
               className="text-sm text-gray-500 leading-relaxed"
             >
-              Enter the email address associated with your account and we'll
-              send you a link to reset your password.
+              Enter your email address and we'll send you a link to reset your
+              password.
             </motion.p>
           </div>
 
@@ -237,14 +239,14 @@ const ForgotPassword = () => {
             transition={{ delay: 0.9 }}
             className="mt-12 text-center"
           >
-            <a
-              href="/PUI/login"
+            <button
+              onClick={() => navigate("/PUI/login")}
               className="inline-flex items-center gap-2 text-sm font-bold hover:underline transition-colors"
               style={{ color: colors.textMain }}
             >
               <ArrowLeft size={16} />
               Back to Login
-            </a>
+            </button>
           </motion.div>
         </div>
       </motion.div>

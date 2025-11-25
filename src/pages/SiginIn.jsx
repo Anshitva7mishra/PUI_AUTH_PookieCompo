@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Lock, ArrowRight, Coffee } from "lucide-react";
+import { Mail, Lock, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const LoginIllustration = ({ primaryColor }) => (
   <svg
@@ -108,6 +109,8 @@ const LoginIllustration = ({ primaryColor }) => (
 );
 
 const SignIn = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -127,31 +130,10 @@ const SignIn = () => {
     primaryDark: "#4f46e5",
     gradientStart: "#6366f1",
     gradientEnd: "#8b5cf6",
-    bgShape: "#4f46e5",
-    textMain: "#1f2937",
-    textSub: "#6b7280",
-    inputBorder: "#e5e7eb",
   };
 
   return (
     <div className="min-h-screen w-full relative bg-gray-50 flex items-center justify-center p-4 overflow-hidden font-sans">
-      <motion.div
-        initial={{ x: 100, y: -100, opacity: 0 }}
-        animate={{ x: 0, y: 0, opacity: 1 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-        className="absolute top-0 right-0 w-[400px] h-[400px] bg-linear-to-bl from-indigo-600 to-purple-600 rounded-bl-[100%] z-0 hidden md:block"
-        style={{ transformOrigin: "top right" }}
-      />
-      <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-600 rounded-bl-[80%] z-0 md:hidden"></div>
-
-      <motion.div
-        initial={{ x: -100, y: 100, opacity: 0 }}
-        animate={{ x: 0, y: 0, opacity: 1 }}
-        transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-        className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-linear-to-tr from-purple-600 to-indigo-600 rounded-tr-[100%] z-0 hidden md:block"
-      />
-      <div className="absolute bottom-0 left-0 w-24 h-24 bg-purple-600 rounded-tr-[80%] z-0 md:hidden"></div>
-
       <motion.div
         initial={{ scale: 0.9, opacity: 0, y: 20 }}
         animate={{ scale: 1, opacity: 1, y: 0 }}
@@ -199,7 +181,6 @@ const SignIn = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
               className="text-3xl font-bold mb-3"
-              style={{ color: "#d946ef" }}
             >
               <span className="bg-clip-text text-transparent bg-linear-to-r from-indigo-600 to-fuchsia-600">
                 Login to Account
@@ -238,18 +219,19 @@ const SignIn = () => {
                 onChange={handleChange}
                 color={colors.primary}
               />
+
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.9 }}
                 className="flex justify-end mt-2"
               >
-                <a
-                  href="/PUI/login/forgot-credentials"
+                <span
+                  onClick={() => navigate("/PUI/login/forgot-credentials")}
                   className="text-xs text-indigo-500 hover:text-indigo-700 font-medium cursor-pointer"
                 >
                   Forgot Password?
-                </a>
+                </span>
               </motion.div>
             </div>
 
@@ -283,13 +265,13 @@ const SignIn = () => {
             className="mt-12 text-sm text-gray-500"
           >
             Don't have an account?{" "}
-            <a
-              href="/"
+            <span
+              onClick={() => navigate("/")}
               className="cursor-pointer font-bold hover:underline"
               style={{ color: colors.primaryDark }}
             >
               Sign Up
-            </a>
+            </span>
           </motion.div>
         </div>
       </motion.div>
@@ -327,7 +309,6 @@ const InputGroup = ({
         >
           {icon}
         </span>
-
         <input
           type={type}
           name={name}
